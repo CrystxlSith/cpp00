@@ -8,19 +8,50 @@ Contact::~Contact()
 {
 }
 
-std::string Contact::getLname() const {
+std::string Contact::getLname() const
+{
 	return (_lname);
 }
 
-std::string Contact::getRname() const {
+std::string Contact::getRname() const
+{
+	return (_rname);
+}
+std::string Contact::getPhonenb() const
+{
+	return (_phonenb);
+}
+std::string Contact::getSecret() const 
+{
+	return (_secret);
 
 }
-std::string Contact::getPhonenb() const {
-
+std::string Contact::getNickname() const
+{
+	return (_nickname);
 }
-std::string Contact::getSecret() const {
 
+void Contact::setLname(const std::string lname)
+{
+	_lname = lname;
 }
-std::string Contact::getNickname() const {
 
+void Contact::setRname(const std::string rname)
+{
+	_rname = rname;
+}
+
+void Contact::setPhonenb(const std::string phonenb)
+{
+	_phonenb = phonenb;
+}
+
+void Contact::setSecret(const std::string secret)
+{
+	_secret = secret;
+}
+
+void Contact::setNickname(const std::string nickname)
+{
+	_nickname = nickname;
 }

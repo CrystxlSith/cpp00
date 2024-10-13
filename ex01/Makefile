@@ -1,8 +1,8 @@
-SRCS = megaphone.cpp
+SRCS = Contact.cpp PhoneBook.cpp main.cpp
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = ${SRCS:.cpp=.o}
-EXEC = megaphone
+EXEC = phonebook
 RM = rm -rf
 
 RED    = \033[31m
@@ -15,18 +15,18 @@ RESET  = \033[0m
 
 .SILENT:
 
-all: megaphone
+all: phonebook
 
-megaphone: $(OBJS)
-	echo "${CYAN}Compiling Megaphone...${RESET}"
+phonebook: $(OBJS)
+	echo "${CYAN}Compiling PhoneBook...${RESET}"
 	${CC} ${FLAGS} ${SRCS} -o ${EXEC}
 	echo "${GREEN}Succes!!!${RESET}"
 clean:
-	echo "${RED}Cleaning Megaphone...${RESET}"
+	echo "${RED}Cleaning PhoneBook...${RESET}"
 	${RM} ${OBJS}
 	echo "${GREEN}Succes!!!${RESET}"
 fclean:
-	echo "${RED}Cleaning Megaphone...${RESET}"
+	echo "${RED}Cleaning PhoneBook...${RESET}"
 	${RM} ${OBJS}
 	${RM} ${EXEC}
 	echo "${GREEN}Succes!!!${RESET}"

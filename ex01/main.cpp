@@ -1,7 +1,7 @@
 #include "PhoneBook.hpp"
 
-int main(int argc, char const *argv[])
+int main()
 {
-    PhoneBook Test{};
+    PhoneBook phonebook;
     return 0;
 }

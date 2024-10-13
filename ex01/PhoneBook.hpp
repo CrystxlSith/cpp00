@@ -16,8 +16,9 @@ class PhoneBook
 	/*
 		TODO : ADD, SEARCH, EXIT
 	*/
-		PhoneBook();
-		~PhoneBook();
+	PhoneBook();
+	~PhoneBook();
+	void addContact(const Contact &contact);
 };
 
 
