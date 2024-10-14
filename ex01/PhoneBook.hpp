@@ -15,6 +15,7 @@ class PhoneBook
 		~PhoneBook();
 		void addContact(const Contact &contact);
 		void printContact(void);
+		void displayContact(const Contact contact);
 };
 
 #endif
