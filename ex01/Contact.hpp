@@ -2,6 +2,7 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <cstdio>
 
 class Contact
 {
@@ -15,7 +16,6 @@ class Contact
     public:
         Contact(/* args */);
         ~Contact();
-
 		// * GETTERS
 		std::string getLname() const;
 		std::string getRname() const;

@@ -7,20 +7,14 @@
 class PhoneBook
 {
 	private:
-	/*
-		TODO : index des contcts && tableau [8] contacts
-	*/
 		int	_index;
+		int	_oldest;
 		Contact _contacts[8];
 	public:
-	/*
-		TODO : ADD, SEARCH, EXIT
-	*/
-	PhoneBook();
-	~PhoneBook();
-	void addContact(const Contact &contact);
+		PhoneBook();
+		~PhoneBook();
+		void addContact(const Contact &contact);
+		void printContact(void);
 };
-
-
 
 #endif
