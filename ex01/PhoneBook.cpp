@@ -4,6 +4,7 @@
 
 PhoneBook::PhoneBook()
 {
+    // Initialize index and oldest contact
    _index = 0;
    _oldest = 0;
     return;
@@ -61,15 +62,16 @@ void PhoneBook::printContact(void)
     }
     std::cout << " ___________________________________________" << std::endl;
     std::cout << "Enter index to display contact" << std::endl;
-    std::cin >> i;
-    if (i > 0 && i <= _index)
-    {
-        displayContact(_contacts[i - 1]);
-    }
-    else
-    {
-        std::cout << "Invalid index" << std::endl;
-    }
+    verif_index();
+    // std::cin >> i;
+    // if (i > 0 && i <= _index)
+    // {
+    //     displayContact(_contacts[i - 1]);
+    // }
+    // else
+    // {
+    //     std::cout << "Invalid index" << std::endl;
+    // }
 }
 
 void PhoneBook::addContact(const Contact &contact)
@@ -89,6 +91,35 @@ void PhoneBook::addContact(const Contact &contact)
         _oldest++;
     }
     return;
+}
+
+// Create a new contact
+void    PhoneBook::create_contact(PhoneBook &phonebook)
+{
+    Contact contact;
+    std::string input;
+
+    std::cout << "Enter Last Name" << std::endl;
+    std::getline(std::cin, input);
+    contact.setLname(input);
+
+    std::cout << "Enter First Name" << std::endl;
+    std::getline(std::cin, input);
+    contact.setRname(input);
+    
+    std::cout << "Enter Phone Number" << std::endl;
+    std::getline(std::cin, input);
+    contact.setPhonenb(input);
+
+    std::cout << "Enter Nickname" << std::endl;
+    std::getline(std::cin, input);
+    contact.setNickname(input);
+
+    std::cout << "Enter Your Darkest Secret..." << std::endl;
+    std::getline(std::cin, input);
+    contact.setSecret(input);
+
+    phonebook.addContact(contact);
 }
 
 // Display contact information

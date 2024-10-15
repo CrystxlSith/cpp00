@@ -16,6 +16,8 @@ class PhoneBook
 		void addContact(const Contact &contact);
 		void printContact(void);
 		void displayContact(const Contact contact);
+		void create_contact(PhoneBook &phonebook);
+		void verif_index();
 };
 
 #endif
