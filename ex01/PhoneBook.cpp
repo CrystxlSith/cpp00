@@ -1,6 +1,7 @@
 #include "PhoneBook.hpp"
 #include <cstring>
 #include <iomanip>
+#include <cstdlib>
 
 PhoneBook::PhoneBook()
 {
@@ -28,6 +29,28 @@ std::string formatString(const std::string& str)
     else
     {
         return std::string(10 - str.length(), ' ') + str;
+    }
+}
+
+void    PhoneBook::verif_index()
+{
+    int i = 0;
+    std::string input;
+
+    std::getline(std::cin, input);
+    if (input[1])
+    {
+        std::cout << "Invalid index" << std::endl;
+        return ;
+    }
+    i = std::atoi(input.c_str());
+    if (i <= _index && i > 0)
+    {
+        displayContact(_contacts[i - 1]);
+    }
+    else
+    {
+        std::cout << "Invalid index" << std::endl;
     }
 }
 
@@ -93,6 +116,40 @@ void PhoneBook::addContact(const Contact &contact)
     return;
 }
 
+// Check if string contains only alphabetic characters
+void    string_alpha(std::string &str)
+{
+    int i = 0;
+
+    while (str[i])
+    {
+        if (!std::isalpha(str[i]))
+        {
+            std::cout << "Invalid input, please enter a valid name" << std::endl;
+            std::getline(std::cin, str);
+            i = -1;
+        }
+        i++;
+    }
+}
+
+// Check if string contains only digits
+void    string_digit(std::string &str)
+{
+    int i = 0;
+
+    while (str[i])
+    {
+        if (!std::isdigit(str[i]))
+        {
+            std::cout << "Invalid input, please enter a valid phone number" << std::endl;
+            std::getline(std::cin, str);
+            i = -1;
+        }
+        i++;
+    }
+}
+
 // Create a new contact
 void    PhoneBook::create_contact(PhoneBook &phonebook)
 {
@@ -101,14 +158,17 @@ void    PhoneBook::create_contact(PhoneBook &phonebook)
 
     std::cout << "Enter Last Name" << std::endl;
     std::getline(std::cin, input);
+    string_alpha(input);
     contact.setLname(input);
 
     std::cout << "Enter First Name" << std::endl;
     std::getline(std::cin, input);
+    string_alpha(input);
     contact.setRname(input);
     
     std::cout << "Enter Phone Number" << std::endl;
     std::getline(std::cin, input);
+    string_digit(input);
     contact.setPhonenb(input);
 
     std::cout << "Enter Nickname" << std::endl;
