@@ -43,6 +43,11 @@ void    PhoneBook::verif_index()
         std::cout << "Invalid index" << std::endl;
         return ;
     }
+    if (_index == 0)
+    {
+        std::cout << "No contact to display" << std::endl;
+        return ;
+    }
     i = std::atoi(input.c_str());
     if (i <= _index && i > 0)
     {
@@ -50,7 +55,8 @@ void    PhoneBook::verif_index()
     }
     else
     {
-        std::cout << "Invalid index" << std::endl;
+        std::cout << "Invalid index, please enter a valid index" << std::endl;
+        verif_index();
     }
 }
 
@@ -86,15 +92,6 @@ void PhoneBook::printContact(void)
     std::cout << " ___________________________________________" << std::endl;
     std::cout << "Enter index to display contact" << std::endl;
     verif_index();
-    // std::cin >> i;
-    // if (i > 0 && i <= _index)
-    // {
-    //     displayContact(_contacts[i - 1]);
-    // }
-    // else
-    // {
-    //     std::cout << "Invalid index" << std::endl;
-    // }
 }
 
 void PhoneBook::addContact(const Contact &contact)

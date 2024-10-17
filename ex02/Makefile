@@ -1,8 +1,8 @@
-SRCS = Contact.cpp PhoneBook.cpp main.cpp
+SRCS = Account.cpp tests.cpp
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = ${SRCS:.cpp=.o}
-EXEC = phonebook
+EXEC = account
 RM = rm -rf
 
 RED    = \033[31m
@@ -15,18 +15,18 @@ RESET  = \033[0m
 
 .SILENT:
 
-all: phonebook
+all: account
 
-phonebook: $(OBJS)
-	echo "${CYAN}Compiling PhoneBook...${RESET}"
+account: $(OBJS)
+	echo "${CYAN}Compiling Account...${RESET}"
 	${CC} ${FLAGS} ${SRCS} -o ${EXEC}
 	echo "${GREEN}Succes!!!${RESET}"
 clean:
-	echo "${RED}Cleaning PhoneBook...${RESET}"
+	echo "${RED}Cleaning Account...${RESET}"
 	${RM} ${OBJS}
 	echo "${GREEN}Succes!!!${RESET}"
 fclean:
-	echo "${RED}Cleaning PhoneBook...${RESET}"
+	echo "${RED}Cleaning Account...${RESET}"
 	${RM} ${OBJS}
 	${RM} ${EXEC}
 	echo "${GREEN}Succes!!!${RESET}"
